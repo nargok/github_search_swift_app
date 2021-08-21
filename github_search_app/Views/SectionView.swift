@@ -14,26 +14,27 @@ struct SectionView: View {
     }
     
     let input: Input
+    @State private var isActive: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
             Text("Swift")
                 .font(.title)
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    CardView(input: .init(iconImage: UIImage(named: "rocket")!, title: "swiftui", language: "swift", star: 29, description: "memo"))
+                HStack(spacing: 20) {
                     ForEach(input.repogitories) { repository in
-                        CardView(input: .init(iconImage: UIImage(systemName:  "camera")!, title: "swiftui", language: "swift", star: 46, description: "memo"))
-                        
+                        CardView(input: .init(iconImage: UIImage(named: "rocket")!, title: "swiftui", language: "swift", star: 46, description: "memo"))
+                            .contentShape(Rectangle())
+                            .sheet(isPresented: self.$isActive, content: {
+                                Text("ddd")
+                            })
                             .onTapGesture {
-                                print("ssss")
+                                self.isActive = true
                             }
                     }
-                    
                 }
             }
-        }
-        
+        }        
     }
 }
 

@@ -70,11 +70,12 @@ struct CardView: View {
                 .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
             
         }
-        .padding()
+        .padding(24)
         .frame(minWidth: 140, maxWidth: 280, minHeight: 180)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .overlay(RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 1))
+        .background(RoundedRectangle(cornerRadius: 20).stroke(Color.gray, lineWidth: 1))
+//        .clipShape(RoundedRectangle(cornerRadius: 10))
+//        .overlay(RoundedRectangle(cornerRadius: 10)
+//                    .stroke(Color.gray, lineWidth: 1))
     }
 }
 
