@@ -15,16 +15,16 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                SectionView(input: .init(repogitories: [repo, repo], searchKeyword: "swift"))
-                    .padding(.bottom, 16)
-                    .previewLayout(.sizeThatFits)
                 
-                SectionView(input: .init(repogitories: [repo, repo], searchKeyword: "swift"))
-                    .previewLayout(.sizeThatFits)
-                SectionView(input: .init(repogitories: [repo, repo], searchKeyword: "swift"))
-                    .previewLayout(.sizeThatFits)
+                ForEach([repo]) { repo in
+                    Button(action: {
+                        print("dd")
+                    }) {
+                        CardView(input: .init(iconImage: UIImage(named: "rocket")!, title: "swiftui", language: "swift", star: 34, description: "memo"))
+                    }
+                }
             }
-            .padding(.all, 20)
+            .padding()
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading: HStack{
                 TextField("検索キーワードを入力", text: self.$text, onCommit: {

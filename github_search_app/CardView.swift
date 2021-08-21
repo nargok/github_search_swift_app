@@ -42,13 +42,18 @@ struct CardView: View {
         VStack(alignment: .leading) {
             
             Image(uiImage: input.iconImage)
+                .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 60, height: 60)
-                .cornerRadius(10)
+                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                .overlay(Circle().stroke(Color.gray, lineWidth: 2))
+                .shadow(color: .gray, radius: 1, x: 0, y: 0)
             
             Text(input.title)
+                .foregroundColor(.black)
                 .font(.title)
+                .fontWeight(.bold)
             
             HStack {
                 Text(input.language)
@@ -66,16 +71,16 @@ struct CardView: View {
                 }
             }
             Text(input.description)
+                .foregroundColor(.black)
                 .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
             
         }
         .padding(24)
-        .frame(minWidth: 140, maxWidth: 280, minHeight: 180)
+        .frame(minWidth: 140, minHeight: 180)
         .background(RoundedRectangle(cornerRadius: 20).stroke(Color.gray, lineWidth: 1))
-//        .clipShape(RoundedRectangle(cornerRadius: 10))
-//        .overlay(RoundedRectangle(cornerRadius: 10)
-//                    .stroke(Color.gray, lineWidth: 1))
+        .clipped()
+        .background(Color.white)
     }
 }
 

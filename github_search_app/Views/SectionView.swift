@@ -23,16 +23,22 @@ struct SectionView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
                     ForEach(input.repogitories) { repository in
-                        CardView(input: .init(iconImage: UIImage(named: "rocket")!, title: "swiftui", language: "swift", star: 46, description: "memo"))
-                            .contentShape(Rectangle())
-                            .sheet(isPresented: self.$isActive, content: {
-                                Text("ddd")
-                            })
-                            .onTapGesture {
-                                self.isActive = true
-                            }
+                        
+                        Button(action: {
+                            self.isActive = true
+                        }) {
+                            CardView(input: .init(iconImage: UIImage(named: "rocket")!, title: "swiftui", language: "swift", star: 46, description: "memo"))
+                                .contentShape(Rectangle())
+                        }
+//                            .sheet(isPresented: self.$isActive, content: {
+//                                Text("ddd")
+//                            })
+//                            .onTapGesture {
+//                                self.isActive = true
+//                            }
                     }
                 }
+                .padding()
             }
         }        
     }
