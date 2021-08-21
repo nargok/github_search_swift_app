@@ -16,8 +16,29 @@ struct ContentView: View {
 
 
 struct TempCardView: View {
+    
+    struct Input {
+        let iconImage: UIImage
+        let title: String
+        let language: String
+        let star: Int
+        let description: String
+    }
+    
+    let input: Input
+    
+    init(input: Input) {
+        self.input = input
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
+            
+            Image(uiImage: input.iconImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 60, height: 60)
+            
             HStack {
                 Image(systemName: "camera")
                     .frame(width: 30, height: 30)
@@ -40,6 +61,11 @@ struct TempCardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        TempCardView()
+        TempCardView(input: .init(iconImage: UIImage(named: "rocket")!,
+                                  title: "SwiftUI",
+                                  language: "Swift",
+                                  star: 100,
+                                  description: "memo"))
+            .previewLayout(.sizeThatFits)
     }
 }
