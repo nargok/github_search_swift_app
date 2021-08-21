@@ -18,6 +18,7 @@
 		28CEB25326C8BAE40080EF39 /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEB25226C8BAE40080EF39 /* APIServiceError.swift */; };
 		28CEB25626C8BB6F0080EF39 /* SearchRepositoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEB25526C8BB6F0080EF39 /* SearchRepositoryRequest.swift */; };
 		28D4B06A26D09EBF00030051 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4B06926D09EBF00030051 /* SectionView.swift */; };
+		28D4B06E26D0A45C00030051 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4B06D26D0A45C00030051 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		28CEB25226C8BAE40080EF39 /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		28CEB25526C8BB6F0080EF39 /* SearchRepositoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryRequest.swift; sourceTree = "<group>"; };
 		28D4B06926D09EBF00030051 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		28D4B06D26D0A45C00030051 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				28D4B06926D09EBF00030051 /* SectionView.swift */,
+				28D4B06D26D0A45C00030051 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				28CEB24B26C8B8990080EF39 /* SearchRepositoryResponse.swift in Sources */,
 				28CEB24F26C8B8EB0080EF39 /* APIService.swift in Sources */,
 				28D4B06A26D09EBF00030051 /* SectionView.swift in Sources */,
+				28D4B06E26D0A45C00030051 /* HomeView.swift in Sources */,
 				28CEB23026C6BE110080EF39 /* ContentView.swift in Sources */,
 				28CEB25626C8BB6F0080EF39 /* SearchRepositoryRequest.swift in Sources */,
 				28CEB24426C8B7630080EF39 /* Owner.swift in Sources */,
