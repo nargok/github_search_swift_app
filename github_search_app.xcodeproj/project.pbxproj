@@ -74,6 +74,7 @@
 				28CEB24D26C8B8D50080EF39 /* Service */,
 				28CEB24226C8B7470080EF39 /* Models */,
 				28CEB23D26C6C0630080EF39 /* ViewComponents */,
+				28D4B07726D0CB3100030051 /* tests */,
 				28CEB22D26C6BE100080EF39 /* github_search_appApp.swift */,
 				28CEB23126C6BE120080EF39 /* Assets.xcassets */,
 				28CEB23626C6BE120080EF39 /* Info.plist */,
@@ -134,6 +135,13 @@
 				28D4B07426D0BB8100030051 /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		28D4B07726D0CB3100030051 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

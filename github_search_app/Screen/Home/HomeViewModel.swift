@@ -12,6 +12,16 @@ final class HomeViewModel: ObservableObject {
     
     enum Inputs {
         case onEnetr(text: String)
+        case tappedErrorAlert
+    }
+    
+    func apply(inputs: Inputs) {
+        switch inputs {
+        case .onEnetr(let query):
+            onEnterSubject.send(query)
+        case .tappedErrorAlert:
+            tappedErrorAlertSubject.send(())
+        }
     }
     
     @Published private(set) var repositories: [Repository] = []
@@ -27,6 +37,7 @@ final class HomeViewModel: ObservableObject {
     
     private let apiService: APIService
     private let onEnterSubject = PassthroughSubject<String, Never>()
+    private let tappedErrorAlertSubject = PassthroughSubject<Void, Never>()
     private let responseSubject = PassthroughSubject<SearchRepositoryResponse, Never>()
     private let errorSubject = PassthroughSubject<APIServiceError, Never>()
     private var cancellables:[AnyCancellable] = []
@@ -45,13 +56,18 @@ final class HomeViewModel: ObservableObject {
             .map { _ in true }
             .assign(to: \.isShowIndicator, on: self)
         
+        let tappedErrorAlertPublisher = tappedErrorAlertSubject
+            .map { _ in false }
+            .assign(to: \.isShowError, on: self)
+        
         let responseStream = responsePublisher
             .share()
             .subscribe(responseSubject)
         
         cancellables += [
             responseStream,
-            loadingStartPublisher
+            loadingStartPublisher,
+            tappedErrorAlertPublisher
         ]
     }
     
