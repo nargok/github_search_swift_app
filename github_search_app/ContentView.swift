@@ -10,12 +10,19 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        Text("hello")
+//        Text("Hello")
+        
+        CardView(input: .init(iconImage: UIImage(named: "rocket")!,
+                                  title: "SwiftUI",
+                                  language: "Swift",
+                                  star: 100,
+                                  description: "memo"))
+            .previewLayout(.sizeThatFits)
     }
 }
 
 
-struct TempCardView: View {
+struct CardView: View {
     
     struct Input {
         let iconImage: UIImage
@@ -38,34 +45,46 @@ struct TempCardView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 60, height: 60)
+                .cornerRadius(10)
+            
+            Text(input.title)
+                .font(.title)
             
             HStack {
-                Image(systemName: "camera")
-                    .frame(width: 30, height: 30)
-                    .padding(.trailing, 20.0)
-                    .foregroundColor(.white)
+                Text(input.language)
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                Spacer()
                 
-                Text("SSS")
-                    .font(.headline)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.white)
+                HStack(spacing: 4) {
+                    Image(systemName: "star")
+                        .renderingMode(.template)
+                        .foregroundColor(.gray)
+                    Text(String(input.star))
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                }
             }
-            Text("BBBB")
-                .foregroundColor(.white)
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 200)
+            Text(input.description)
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+            
         }
-        .background(Color.black)
-        .cornerRadius(10)
+        .padding()
+        .frame(minWidth: 140, maxWidth: 280, minHeight: 180)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .overlay(RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 1))
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        TempCardView(input: .init(iconImage: UIImage(named: "rocket")!,
+        CardView(input: .init(iconImage: UIImage(named: "rocket")!,
                                   title: "SwiftUI",
                                   language: "Swift",
                                   star: 100,
-                                  description: "memo"))
+                                  description: "memomomomomoomomomo"))
             .previewLayout(.sizeThatFits)
     }
 }
