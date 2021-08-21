@@ -68,12 +68,11 @@
 		28CEB22C26C6BE100080EF39 /* github_search_app */ = {
 			isa = PBXGroup;
 			children = (
-				28D4B06826D09EA600030051 /* Views */,
+				28D4B06826D09EA600030051 /* Screen */,
 				28CEB24D26C8B8D50080EF39 /* Service */,
 				28CEB24226C8B7470080EF39 /* Models */,
 				28CEB23D26C6C0630080EF39 /* ViewComponents */,
 				28CEB22D26C6BE100080EF39 /* github_search_appApp.swift */,
-				28CEB22F26C6BE110080EF39 /* CardView.swift */,
 				28CEB23126C6BE120080EF39 /* Assets.xcassets */,
 				28CEB23626C6BE120080EF39 /* Info.plist */,
 				28CEB23326C6BE120080EF39 /* Preview Content */,
@@ -92,6 +91,7 @@
 		28CEB23D26C6C0630080EF39 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				28CEB22F26C6BE110080EF39 /* CardView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -116,13 +116,21 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		28D4B06826D09EA600030051 /* Views */ = {
+		28D4B06826D09EA600030051 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				28D4B07226D0BB4600030051 /* Home */,
 				28D4B06926D09EBF00030051 /* SectionView.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		28D4B07226D0BB4600030051 /* Home */ = {
+			isa = PBXGroup;
+			children = (
 				28D4B06D26D0A45C00030051 /* HomeView.swift */,
 			);
-			path = Views;
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
