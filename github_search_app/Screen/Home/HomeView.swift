@@ -10,17 +10,19 @@ import SwiftUI
 struct HomeView: View {
     let repo = Repository(id: 1, name: "swift", description: "memo", stargazersCount: 21, language: "swift", url: "https://goog.com", owner: Owner(id: 1, avatarUrl: "mark"))
     
+    @ObservedObject var viewModel: HomeViewModel
     @State private var text = ""
     
     var body: some View {
         NavigationView {
             ScrollView {
                 
-                ForEach([repo]) { repo in
+                ForEach(viewModel.cardViewInputs) { input in
                     Button(action: {
                         print("dd")
                     }) {
-                        CardView(input: .init(iconImage: UIImage(named: "rocket")!, title: "swiftui", language: "swift", star: 34, description: "memo"))
+//                        CardView(input: .init(iconImage: UIImage(named: "rocket")!, title: "swiftui", language: "swift", star: 34, description: "memo", url: "https:example.com"))
+                        CardView(input: input)
                     }
                 }
             }
@@ -28,7 +30,7 @@ struct HomeView: View {
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading: HStack{
                 TextField("検索キーワードを入力", text: self.$text, onCommit: {
-                    
+                    self.viewModel.apply(inputs: .onEnter(text: self.text))
                 })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.asciiCapable)
@@ -40,6 +42,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(viewModel: .init(apiService: APIService()))
     }
 }

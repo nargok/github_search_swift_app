@@ -27,7 +27,7 @@ struct SectionView: View {
                         Button(action: {
                             self.isActive = true
                         }) {
-                            CardView(input: .init(iconImage: UIImage(named: "rocket")!, title: "swiftui", language: "swift", star: 46, description: "memo"))
+                            CardView(input: .init(iconImage: UIImage(named: "rocket")!, title: "swiftui", language: "swift", star: 46, description: "memo", url: "https:example.com"))
                                 .contentShape(Rectangle())
                         }
 //                            .sheet(isPresented: self.$isActive, content: {

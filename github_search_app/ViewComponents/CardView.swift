@@ -8,28 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        
-//        Text("Hello")
-        
-        CardView(input: .init(iconImage: UIImage(named: "rocket")!,
-                                  title: "SwiftUI",
-                                  language: "Swift",
-                                  star: 100,
-                                  description: "memo"))
-            .previewLayout(.sizeThatFits)
+    var body: some View {        
+        Text("Hello")
     }
 }
 
 
 struct CardView: View {
     
-    struct Input {
+    struct Input: Identifiable {
+        let id: UUID = UUID()
         let iconImage: UIImage
         let title: String
-        let language: String
+        let language: String?
         let star: Int
-        let description: String
+        let description: String?
+        let url: String
     }
     
     let input: Input
@@ -56,7 +50,7 @@ struct CardView: View {
                 .fontWeight(.bold)
             
             HStack {
-                Text(input.language)
+                Text(input.language ?? "")
                     .font(.footnote)
                     .foregroundColor(.gray)
                 Spacer()
@@ -70,7 +64,7 @@ struct CardView: View {
                         .foregroundColor(.gray)
                 }
             }
-            Text(input.description)
+            Text(input.description ?? "")
                 .foregroundColor(.black)
                 .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
@@ -90,7 +84,8 @@ struct ContentView_Previews: PreviewProvider {
                                   title: "SwiftUI",
                                   language: "Swift",
                                   star: 100,
-                                  description: "memomomomomoomomomo"))
+                                  description: "memomomomomoomomomo",
+                                  url: "https:example.com"))
             .previewLayout(.sizeThatFits)
     }
 }
